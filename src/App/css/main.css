@@ -1,0 +1,14 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	box-sizing: border-box;
+}
+input,
+button {
+	outline: none;
+}
+p {
+	margin: 0;
+}

@@ -1,0 +1,180 @@
+@mixin mobile {
+	@media (max-width: 992px) {
+		@content;
+	}
+}
+
+.main-container {
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+.current {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 30px;
+	.city {
+		font-size: 50px;
+	}
+	@include mobile {
+		margin-top: 0;
+		.city {
+			font-size: 30px;
+		}
+	}
+}
+.forecast-container {
+	width: 100%;
+	position: absolute;
+	overflow: hidden;
+	white-space: nowrap;
+	bottom: 0;
+	height: 300px;
+	.forecast-block {
+		margin: 5px;
+		display: inline-block;
+		width: 250px;
+		user-select: none;
+		height: 300px;
+		&:hover {
+			background: rgba(255, 255, 255, 0.2);
+		}
+		i {
+			font-size: 40px;
+			margin-top: 20px;
+			float: left;
+		}
+		.forecast-temp {
+			float: left;
+			font-size: 60px;
+			margin: 10px;
+			&::after {
+				content: '\00B0';
+			}
+		}
+		.forecast-weather {
+			clear: both;
+			font-size: 40px;
+			text-align: center;
+		}
+	}
+	@include mobile {
+		overflow: auto;
+		height: 250px;
+		.forecast-block {
+			height: 220px;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}
+
+.temperature-block {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	.main-temperature {
+		font-size: 110px;
+		position: relative;
+		&::after {
+			content: '\00B0';
+		}
+	}
+	.btns-block {
+		position: absolute;
+		right: -10px;
+		top: 15px;
+	}
+
+	i {
+		position: absolute;
+		left: -65px;
+		top: 19px;
+		font-size: 60px;
+	}
+	.btn {
+		display: block;
+		background: none;
+		border: none;
+		color: rgba(255, 255, 255, 0.4);
+		font-size: 25px;
+		&.active {
+			color: white;
+		}
+		&:hover {
+			color: white;
+			cursor: pointer;
+		}
+	}
+	@include mobile {
+		.main-temperature {
+			font-size: 50px;
+		}
+		.btns-block {
+			right: 15px;
+			top: 5px;
+		}
+		i {
+			left: -5px;
+			top: 15px;
+			font-size: 40px;
+		}
+	}
+}
+.temperature {
+	display: inline;
+	font-size: 30px;
+	margin: 15px;
+	i {
+		margin: 10px;
+		font-size: 35px;
+	}
+	&::after {
+		content: '\00B0';
+	}
+}
+.weather {
+	text-align: center;
+	font-size: 50px;
+	@include mobile {
+		font-size: 30px;
+	}
+}
+.header {
+	height: 50px;
+	background: rgba(0, 0, 0, 0.5);
+	form {
+		float: right;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		input {
+			height: 35px;
+			width: 180px;
+			background: #212121;
+			border: none;
+			color: #b6b6b6;
+			padding-left: 10px;
+			font-size: 20px;
+		}
+		button {
+			background: #212121;
+			border: none;
+			height: 35px;
+			font-size: 15px;
+			margin-left: 5px;
+			margin-right: 5px;
+			fill: #b6b6b6;
+			&:hover {
+				fill: white;
+				cursor: pointer;
+			}
+		}
+	}
+}
+.hidden {
+	display: none;
+}
